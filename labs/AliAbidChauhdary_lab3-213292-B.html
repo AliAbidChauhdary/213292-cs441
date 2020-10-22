@@ -19,8 +19,9 @@
               float: left;
               padding: 15px;
             }
-            
+            .col-1 {width: 15%;}
             .col-3 {width: 25%;}
+            .col-4 {width: 30%;}
             .col-12 {width: 100%;}
             
             html {
@@ -78,6 +79,8 @@
         <div id ="task4" class="col-3"><h1>Task 4</h1>
             <p>Click the button to hide/show the above things.</p> <br />
             <button id = "hs" onclick="hiding()">Hide</button><br />
+            <button id ="reduce" onclick= "reduce()">Reduce</button>
+            <button id ="increase" onclick= "increase()">increase</button>
         <br />
         <br />
         </div>
@@ -160,6 +163,22 @@
                 else{
                     document.getElementById("hs").innerHTML = 'Hide';
                 }
+            }
+            function reduce(){
+                $('#task1').removeClass("col-3 col-4");
+                $('#task1').addClass("col-1");
+                $('#task2').removeClass("col-3 col-4");
+                $('#task2').addClass("col-1");
+                $('#task2').removeClass("col-3 col-4");
+                $('#task2').addClass("col-1");
+            }
+            function increase(){
+                $('#task1').removeClass("col-3 col-1");
+                $('#task1').addClass("col-4");
+                $('#task2').removeClass("col-3 col-1");
+                $('#task2').addClass("col-4 ");
+                $('#task2').removeClass("col-3 col-1");
+                $('#task2').addClass("col-4");
             }
             $('#1').hide();
             $('#2').hide();
