@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>Lab 3</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <style>
+            * {
+              box-sizing: border-box;
+            }
+            
+            .row::after {
+              content: "";
+              clear: both;
+              display: table;
+            }
+            
+            [class*="col-"] {
+              float: left;
+              padding: 15px;
+            }
+            
+            .col-3 {width: 25%;}
+            .col-12 {width: 100%;}
+            
+            html {
+              font-family: "Lucida Sans", sans-serif;
+            }
+            
+            .header {
+              background-color:black;
+              color: #ffffff;
+              padding: 15px;
+            }
+            #f1 {
+
+              visibility: hidden;
+            }
+            
+            </style>
+
+    </head>
+    <body>
+        <div class="header">
+            <h1>Lab 03 ALI ABID CAHUDHARY CS 7-B</h1>
+          </div>
+    <div class="row">  
+        <div id ="task1" class="col-3">
+            <h1>Task 1</h1>
+            <label for="input1">
+                Enter Number:
+            </label>
+            <div>
+            <input type="text" name="input1" id="input1" placeholder="Enter 0 to show Sum" value="">
+            <input type="button" id="sum" value="Sum" onclick="sum()" >
+            </div>
+            
+            <p>
+                
+                <span id="result"></span>
+            </p>
+        </div>        
+        
+        <div id="task2" class="col-3"><h1>Task 2</h1>
+            <p>Click the button to answer a question.</p><br />
+            <button onclick="Question()">Answer a Question</button><br />
+            <div id="result1"></div>
+        <br />
+        <br />
+        </div>
+        <div id="task3"class="col-3"><h1>Task 3</h1>
+            <p>Click the button to display a message multiple times.</p><br />
+        <button onclick="Message()">Display Message</button><br />
+            <div id="result2"></div>
+        <br />
+        <br />
+        </div>
+        <div id ="task4" class="col-3"><h1>Task 4</h1>
+            <p>Click the button to hide/show the above things.</p> <br />
+            <button id = "hs" onclick="hiding()">Hide</button><br />
+        <br />
+        <br />
+        </div>
+        <div id="task5" class="col-12">
+            <h1>Task 5</h1>
+            <p id = "f"> 1. An old man lived in the village. He was one of the most unfortunate people in the world. The whole village was tired of him; he was always gloomy, he constantly complained and was always in a bad mood.An old man lived in the village. He was one of the most unfortunate people in the world. The whole village was tired of him; he was always gloomy, he constantly complained and was always in a bad mood.</p>
+            <button id="fp" onclick="showfirst()">Show/Hide First Paragraph </button><br />
+            <p id = "2"> 2. An old man lived in the village. He was one of the most unfortunate people in the world. The whole village was tired of him; he was always gloomy, he constantly complained and was always in a bad mood.An old man lived in the village. He was one of the most unfortunate people in the world. The whole village was tired of him; he was always gloomy, he constantly complained and was always in a bad mood.</p>
+            <p id = "4">4. An old man lived in the village. He was one of the most unfortunate people in the world. The whole village was tired of him; he was always gloomy, he constantly complained and was always in a bad mood.An old man lived in the village. He was one of the most unfortunate people in the world. The whole village was tired of him; he was always gloomy, he constantly complained and was always in a bad mood.</p>
+            <button id="p2" onclick="showEven()">Show Even Paragraphs</button><br />
+            <p id = "1"> 1. An old man lived in the village. He was one of the most unfortunate people in the world. The whole village was tired of him; he was always gloomy, he constantly complained and was always in a bad mood.An old man lived in the village. He was one of the most unfortunate people in the world. The whole village was tired of him; he was always gloomy, he constantly complained and was always in a bad mood.</p>
+            <p id = "3"> 3. An old man lived in the village. He was one of the most unfortunate people in the world. The whole village was tired of him; he was always gloomy, he constantly complained and was always in a bad mood.An old man lived in the village. He was one of the most unfortunate people in the world. The whole village was tired of him; he was always gloomy, he constantly complained and was always in a bad mood.</p>
+            <p id = "5"> 5. An old man lived in the village. He was one of the most unfortunate people in the world. The whole village was tired of him; he was always gloomy, he constantly complained and was always in a bad mood.An old man lived in the village. He was one of the most unfortunate people in the world. The whole village was tired of him; he was always gloomy, he constantly complained and was always in a bad mood.</p>
+            <button id="p3" onclick="showOdd()">Show Odd Paragraphs</button><br />
+           
+            <p id = "l">
+                5. An old man lived in the village. He was one of the most unfortunate people in the world. The whole village was tired of him; he was always gloomy, he constantly complained and was always in a bad mood.An old man lived in the village. He was one of the most unfortunate people in the world. The whole village was tired of him; he was always gloomy, he constantly complained and was always in a bad mood.
+            </p>
+            <button id="p5" onclick="showLast()">Show/Hide Last Paragraph </button><br />
+            <div >
+                
+                <label for="input2">
+                    Enter nth Paragraph to show:
+                </label>
+                <div>
+                <input type="text" name="input2" id="input2" placeholder="Enter value:" value="">
+                <input type="button" id="nth" value="Show Nth" onclick="showNth()" >
+                <p id = "01"> 1. An old man lived in the village. He was one of the most unfortunate people in the world. The whole village was tired of him; he was always gloomy, he constantly complained and was always in a bad mood.An old man lived in the village. He was one of the most unfortunate people in the world. The whole village was tired of him; he was always gloomy, he constantly complained and was always in a bad mood.</p>
+                <p id = "02"> 2. An old man lived in the village. He was one of the most unfortunate people in the world. The whole village was tired of him; he was always gloomy, he constantly complained and was always in a bad mood.An old man lived in the village. He was one of the most unfortunate people in the world. The whole village was tired of him; he was always gloomy, he constantly complained and was always in a bad mood.</p>
+                <p id = "03"> 3. An old man lived in the village. He was one of the most unfortunate people in the world. The whole village was tired of him; he was always gloomy, he constantly complained and was always in a bad mood.An old man lived in the village. He was one of the most unfortunate people in the world. The whole village was tired of him; he was always gloomy, he constantly complained and was always in a bad mood.</p>
+                <p id = "04"> 4. An old man lived in the village. He was one of the most unfortunate people in the world. The whole village was tired of him; he was always gloomy, he constantly complained and was always in a bad mood.An old man lived in the village. He was one of the most unfortunate people in the world. The whole village was tired of him; he was always gloomy, he constantly complained and was always in a bad mood.</p>
+                <p id = "05"> 5. An old man lived in the village. He was one of the most unfortunate people in the world. The whole village was tired of him; he was always gloomy, he constantly complained and was always in a bad mood.An old man lived in the village. He was one of the most unfortunate people in the world. The whole village was tired of him; he was always gloomy, he constantly complained and was always in a bad mood.</p>
+            </div>
+                
+                
+            </div>        
+            
+        </div>
+    </div>
+        <script>
+
+            var num =0 ;
+            var total = 0;
+            function sum(){
+                
+                num = parseInt( document.getElementById("input1").value);
+                document.getElementById("input1").value = " ";
+                console.log(num);
+                total += num  ;
+                if (num == 0){
+                    document.getElementById("result").innerHTML = "Sum :"+total ;
+                }
+                
+               }
+               function Question(){
+                var answer = prompt("What is the Capital of Pakistan?");
+                if (answer.toLowerCase() == "islamabad"  ){
+                    document.getElementById("result1").innerHTML = "Correct Answer!";
+                }
+                else{
+                    document.getElementById("result1").innerHTML = "Sorry Wrong Answer!!";
+                }
+            }
+            function Message(){
+                document.getElementById("result2").innerHTML = "";
+                var number = prompt("Enter a number:");
+                var message = prompt("Enter a message:");
+
+                for (var i = 0 ;i < number; i++){
+                    document.getElementById("result2").innerHTML = document.getElementById("result2").innerHTML + message + "<br />";
+                }
+            }
+            function hiding(){
+                $('#task1').toggle();
+                $('#task2').toggle();
+                $('#task3').toggle();
+                if(document.getElementById("hs").innerHTML == 'Hide'){
+                    document.getElementById("hs").innerHTML = 'Show';
+                }
+                else{
+                    document.getElementById("hs").innerHTML = 'Hide';
+                }
+            }
+            $('#1').hide();
+            $('#2').hide();
+            $('#3').hide();
+            $('#4').hide();
+            $('#5').hide();
+            $('#f').hide();
+            $('#l').hide();
+            $('#01').hide();
+            $('#02').hide();
+            $('#03').hide();
+            $('#04').hide();
+            $('#05').hide();
+            function showfirst(){
+                $('#f').toggle();
+                if(document.getElementById("fp").innerHTML == 'Show First Paragraph'){
+                    document.getElementById("fp").innerHTML = 'Hide First Paragraph ';
+                }
+                else{
+                    document.getElementById("p1").innerHTML = 'Show?Hide First Paragraph';
+                }
+            }
+            function showEven(){
+                $('#2,#4 ').toggle(); 
+                if(document.getElementById("p2").innerHTML == 'Show Even Paragraphs'){
+                    document.getElementById("p2").innerHTML = 'Hide Even Paragraphs ';
+                }
+                else{
+                    document.getElementById("p2").innerHTML = 'Show Even Paragraphs';
+                }
+                
+            }
+            function showOdd(){
+                $('#1,#3,#5').toggle(); 
+                if(document.getElementById("p3").innerHTML == 'Show Odd Paragraphs'){
+                    document.getElementById("p3").innerHTML == 'Hide Odd Paragraphs';
+                }
+                else{
+                    document.getElementById("p3").innerHTML = 'Show Odd Paragraphs';
+                }
+            }
+            function showLast(){
+                $('#l').toggle(); 
+                if(document.getElementById("p5").innerHTML == 'Show Last Paragraph 5'){
+                    document.getElementById("p5").innerHTML = 'Hide Last Paragraph 5';
+                }
+                else{
+                    document.getElementById("p5").innerHTML = 'Show?Hide Last Paragraph 5';
+                }
+            }   
+            function showNth(){
+                num = parseInt( document.getElementById("input2").value);
+                if(num== 1){
+                    $('#01').show();
+                }
+                if(num== 2){
+                    $('#02').show();
+                }
+                if(num== 3){
+                    $('#03').show();
+                }
+                if(num== 4){
+                    $('#04').show();
+                }
+                if(num== 5){
+                    $('#05').show();
+                }
+            }
+
+           
+        </script>
+    </body>
+</html>
